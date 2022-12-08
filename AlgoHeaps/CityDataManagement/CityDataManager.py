@@ -1,7 +1,7 @@
 from typing import List
-from CityDataManagement.City import City
-from CityDataManagement.CityMaxHeap import CityMaxHeap
-from CityDataManagement.ICityDataManagerAccess import ICityDataManagerAccess
+from AlgoHeaps.CityDataManagement.City import City
+from AlgoHeaps.CityDataManagement.CityMaxHeap import CityMaxHeap
+from AlgoHeaps.CityDataManagement.ICityDataManagerAccess import ICityDataManagerAccess
 
 
 class CityDataManager(ICityDataManagerAccess):
