@@ -3,9 +3,10 @@ import random
 import math
 from typing import List
 
-from CityDataManagement.City import City
-from CityDataManagement.CityDataManager import CityDataManager
-from Visualization.HeatMapColorCreator import HeatMapColorCreator
+
+from AlgoHeaps.CityDataManagement.City import City
+from AlgoHeaps.CityDataManagement.CityDataManager import CityDataManager
+from AlgoHeaps.Visualization.HeatMapColorCreator import HeatMapColorCreator
 
 from bokeh.models import Circle, MultiLine
 from bokeh.plotting import figure, from_networkx, show
