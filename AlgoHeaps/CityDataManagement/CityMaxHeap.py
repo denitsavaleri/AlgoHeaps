@@ -62,4 +62,5 @@ class CityMaxHeap(AbstractCityHeap):
         Remove a City from the Max-Heap
         """
         # TODO: implement me!
-        ...
+
+
