@@ -28,7 +28,7 @@ class AbstractCityHeap(ABC):
     The root is located at index 0, so it`s children must be on Index 1 and 2 and so on...
     """
 
-    heapStorage: List[City] = [0]  # empty List of City Objects
+    heapStorage: List[City] = []  # empty List of City Objects
     maximumHeapCapacity = 0
     currentHeapLastIndex = 0  # current last Index of the Heap based on the inserted City Objects, this is also the current Size of the Heap
     rawCityData: List[City]
@@ -107,6 +107,7 @@ class AbstractCityHeap(ABC):
             self.build_heap_via_floyd()
         else:
             for i in self.rawCityData:
+                #print("Insert folgt")
                 self.insert(i)
 
     def insert(self, city):
@@ -114,9 +115,13 @@ class AbstractCityHeap(ABC):
         Insert a single City into the Heap.
         """
         # implemented
-        if(self.currentHeapLastIndex > self.maximumHeapCapacity):
+        #print("Im adding: ", city)
+        if self.currentHeapLastIndex > self.maximumHeapCapacity:
             raise Exception("No more space")
         self.heapStorage.append(city)
+        #print("Cty: ",self.heapStorage[self.currentHeapLastIndex])
+        #print("Index: ",self.currentHeapLastIndex)
+
         self.currentHeapLastIndex += 1
 
         if self.recursive:
@@ -156,14 +161,14 @@ class AbstractCityHeap(ABC):
         Return the index of the left child. 
         """
         # implemented
-        return 2*index +1
+        return 2*index + 1
 
     def get_right_child_index(self, index):
         """
         Return the index of the right child. 
         """
         # implemented
-        return 2*index +2
+        return 2*index + 2
 
     def has_parent(self, index) -> bool:
         """
@@ -193,8 +198,8 @@ class AbstractCityHeap(ABC):
         The Index of the Child can be used for this purpose.
         """
         # implemented
-        left_child = self.get_left_child_index(index)
-        if left_child < self.maximumHeapCapacity:
+        left_child_index = self.get_left_child_index(index)
+        if left_child_index < self.maximumHeapCapacity:
             return True
         else:
             return False
@@ -212,8 +217,8 @@ class AbstractCityHeap(ABC):
         The Index of the Child can be used for this purpose.
         """
         # implemented
-        right_child = self.get_right_child_index(index)
-        if right_child < self.maximumHeapCapacity:
+        right_child_index = self.get_right_child_index(index)
+        if right_child_index < self.maximumHeapCapacity:
             return True
         else:
             return False
@@ -223,10 +228,6 @@ class AbstractCityHeap(ABC):
         Return the Population of a City with the given index in the heap.
         """
         # implemented
-        # print(self.heapStorage)
-        print("1",index)
-        print("2",self.heapStorage[index])
-        # print(self.rawCityData)
         return self.heapStorage[index].population
 
     def get_parent_population(self, index):
