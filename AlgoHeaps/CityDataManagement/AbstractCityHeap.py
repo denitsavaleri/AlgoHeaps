@@ -144,7 +144,7 @@ class AbstractCityHeap(ABC):
         Return the City at the Root
         """
         # implemented
-        return self.heapStorage[0]
+        return self.heapStorage[0].name
 
     def get_parent_index(self, index):
         """
