@@ -27,14 +27,14 @@ class HeapCreationAssembler:
         self.executionTimeAnalyser.stop("MaxHeap Execution time Iterative: ")
 
         # create Max Heap and measure Execution Time Recursive
-        # self.executionTimeAnalyser.start()
-        # self.cityDataManager.create_new_max_city_heap(city_data, True, False)
-        # self.executionTimeAnalyser.stop("MaxHeap Execution time Recursive: ")
-        #
-        # # create Max Heap and measure Execution Time for Floyds Algorithm
-        # self.executionTimeAnalyser.start()
-        # self.cityDataManager.create_new_max_city_heap(city_data, True, True)
-        # self.executionTimeAnalyser.stop("MaxHeap Execution time with Floyd's Algorithm: ")
+        self.executionTimeAnalyser.start()
+        self.cityDataManager.create_new_max_city_heap(city_data, True, False)
+        self.executionTimeAnalyser.stop("MaxHeap Execution time Recursive: ")
+
+        # create Max Heap and measure Execution Time for Floyds Algorithm
+        self.executionTimeAnalyser.start()
+        self.cityDataManager.create_new_max_city_heap(city_data, True, True)
+        self.executionTimeAnalyser.stop("MaxHeap Execution time with Floyd's Algorithm: ")
 
         # Further Execution Time measurement
         self.measure_tim_sort_execution_time(city_data)

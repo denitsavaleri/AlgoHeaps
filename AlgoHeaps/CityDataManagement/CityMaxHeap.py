@@ -45,7 +45,6 @@ class CityMaxHeap(AbstractCityHeap):
             return
         parent_index = self.get_parent_index(index)
 
-
         if self.get_city_population(index) > self.get_city_population(parent_index):
             self.swap_nodes(index, parent_index)
             index = parent_index
