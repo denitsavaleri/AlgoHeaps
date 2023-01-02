@@ -50,16 +50,33 @@ class CityMaxHeap(AbstractCityHeap):
             index = parent_index
             self.heapify_up_recursive(index)
 
-
-
-
     def heapify_floyd(self, index, amount_of_cities):
         """
         Establish heap conditions for a Max-Heap via Floyds Heap Construction Algorithmus.
-        
         """
-        # TODO: implement me!
-        ...
+        trueindex = index
+        for i in range(len(self.rawCityData)):
+            index = trueindex - i
+            while index >= 0:
+                left_child = self.get_left_child_index(index)
+                right_child = self.get_right_child_index(index)
+                largest = index
+
+                # Find the largest of the three elements at the index and its children
+                if left_child < amount_of_cities and self.get_city_population(left_child) > self.get_city_population(
+                        largest):
+                    largest = left_child
+                if right_child < amount_of_cities and self.get_city_population(right_child) > self.get_city_population(
+                        largest):
+                    largest = right_child
+
+                # If the largest element is not at the index, swap it with the element at that index and repeat the process for the index of the swapped element
+                if largest != index:
+                    self.swap_nodes(index, largest)
+                    index = self.get_parent_index(index)
+                else:
+                    # Max-heap property is already satisfied, so we can break out of the loop
+                    break
 
     def heapify_down_iterative(self):
         """
