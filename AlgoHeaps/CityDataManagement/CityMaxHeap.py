@@ -54,30 +54,50 @@ class CityMaxHeap(AbstractCityHeap):
         """
         Establish heap conditions for a Max-Heap via Floyds Heap Construction Algorithmus.
         """
-        trueindex = index
-        for i in range(len(self.rawCityData)):
-            index = trueindex - i
-            while index >= 0:
-                left_child = self.get_left_child_index(index)
-                right_child = self.get_right_child_index(index)
-                largest = index
+        # trueindex = index
+        # for i in range(self.get_parent_index(index),len(self.rawCityData)):
+        #     index = trueindex - i
+        #     while index >= 0:
+        #         left_child = self.get_left_child_index(index)
+        #         right_child = self.get_right_child_index(index)
+        #         largest = index
+        #
+        #         # Find the largest of the three elements at the index and its children
+        #         if left_child < amount_of_cities and self.get_city_population(left_child) > self.get_city_population(
+        #                 largest):
+        #             largest = left_child
+        #         if right_child < amount_of_cities and self.get_city_population(right_child) > self.get_city_population(
+        #                 largest):
+        #             largest = right_child
+        #
+        #         # If the largest element is not at the index, swap it with the element at that index and repeat the process for the index of the swapped element
+        #         if largest != index:
+        #             self.swap_nodes(index, largest)
+        #             index = self.get_parent_index(index)
+        #         else:
+        #             # Max-heap property is already satisfied, so we can break out of the loop
+        #             break
 
-                # Find the largest of the three elements at the index and its children
-                if left_child < amount_of_cities and self.get_city_population(left_child) > self.get_city_population(
-                        largest):
-                    largest = left_child
-                if right_child < amount_of_cities and self.get_city_population(right_child) > self.get_city_population(
-                        largest):
-                    largest = right_child
+        largest = index  # Initialize largest as root
+        l = self.get_left_child_index(index)
+        r = self.get_right_child_index(index)
 
-                # If the largest element is not at the index, swap it with the element at that index and repeat the process for the index of the swapped element
-                if largest != index:
-                    self.swap_nodes(index, largest)
-                    index = self.get_parent_index(index)
-                else:
-                    # Max-heap property is already satisfied, so we can break out of the loop
-                    break
+        # See if left child of root exists and is
+        # greater than root
+        if l < amount_of_cities and self.get_city_population(largest) < self.get_city_population(l):
+            largest = l
 
+        # See if right child of root exists and is
+        # greater than root
+        if r < amount_of_cities and self.get_city_population(largest) < self.get_city_population(r):
+            largest = r
+
+     # Change root, if needed
+        if largest != index:
+            self.swap_nodes(largest,index)
+
+            # Heapify the root.
+            self.heapify_floyd(largest, amount_of_cities)
     def heapify_down_iterative(self):
         """
         Establish heap conditions for a Max-Heap iterative downwards.

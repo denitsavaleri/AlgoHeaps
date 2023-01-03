@@ -137,7 +137,18 @@ class AbstractCityHeap(ABC):
         for city in self.rawCityData:
             self.heapStorage.append(city)
             self.currentHeapLastIndex += 1
-        self.heapify_floyd(self.currentHeapLastIndex-1, len(self.rawCityData))
+        # self.heapify_floyd(self.currentHeapLastIndex-1, len(self.rawCityData))
+
+        N = len(self.rawCityData)
+
+        # Build a maxheap.
+        for i in range(N // 2 - 1, -1, -1):
+            self.heapify_floyd(i, N)
+
+        # One by one extract elements
+        for i in range(N - 1, 0, -1):
+            self.swap_nodes(i, 0)
+            self.heapify_floyd(0, i)
 
     def get_root_city(self):
         """
