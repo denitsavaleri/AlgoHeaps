@@ -145,6 +145,7 @@ class AbstractCityHeap(ABC):
         for i in range(N // 2 - 1, -1, -1):
             self.heapify_floyd(i, N)
 
+        #for unsorted testing, comment this:
         # One by one extract elements
         for i in range(N - 1, 0, -1):
             self.swap_nodes(i, 0)

@@ -75,6 +75,33 @@ class CityMaxHeap(AbstractCityHeap):
 
             # Heapify the root.
             self.heapify_floyd(largest, amount_of_cities)
+
+    #withouth sort, for testing comment the with-sort method
+    # def heapify_floyd(self, index, amount_of_cities):
+    #     """
+    #     Establish heap conditions for a Max-Heap via Floyds Heap Construction Algorithmus.
+    #     """
+    #
+    #     largest = index  # Initialize largest as root
+    #     l = self.get_left_child_index(index)
+    #     r = self.get_right_child_index(index)
+    #
+    #     # See if left child of root exists and is
+    #     # greater than root
+    #     if l < amount_of_cities and self.get_city_population(largest) < self.get_city_population(l):
+    #         largest = l
+    #
+    #     # See if right child of root exists and is
+    #     # greater than root
+    #     if r < amount_of_cities and self.get_city_population(largest) < self.get_city_population(r):
+    #         largest = r
+    #
+    #  # Change root, if needed
+    #     if largest != index:
+    #         self.swap_nodes(largest,index)
+    #
+    #         # Heapify the root.
+    #         self.heapify_floyd(largest, amount_of_cities)
     def heapify_down_iterative(self):
         """
         Establish heap conditions for a Max-Heap iterative downwards.
