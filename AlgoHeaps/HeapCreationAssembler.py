@@ -50,7 +50,7 @@ class HeapCreationAssembler:
         # Visualisation
         data_to_visualize: List[City] = self.cityDataManager.get_max_heap_as_list()
         amount_of_nodes_to_create = 1023
-        # for i in data_to_visualize:           //further testing
+        # for i in data_to_visualize:           #further testing
         #     print(i.population)
         # amount_of_nodes_to_create = len(city_data) #all cities, use this for science at the price of performance ;)
         self.visualize_heap(data_to_visualize, amount_of_nodes_to_create, city_data)
