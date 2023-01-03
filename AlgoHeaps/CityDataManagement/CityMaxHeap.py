@@ -50,7 +50,9 @@ class CityMaxHeap(AbstractCityHeap):
             index = parent_index
             self.heapify_up_recursive(index)
 
-    #"With-sort" method, for testing unsorted, comment this method:
+    """
+    "With-sort" method, for testing unsorted, comment this method:
+    """
     def heapify_floyd(self, index, amount_of_cities):
         """
         Establish heap conditions for a Max-Heap via Floyds Heap Construction Algorithmus.
@@ -77,7 +79,9 @@ class CityMaxHeap(AbstractCityHeap):
             # Heapify the root.
             self.heapify_floyd(largest, amount_of_cities)
 
-    #withouth sort, for testing comment the "with-sort" method
+    """
+    withouth sort, for testing comment the "with-sort" method
+    """
     # def heapify_floyd(self, index, amount_of_cities):
     #     """
     #     Establish heap conditions for a Max-Heap via Floyds Heap Construction Algorithmus.
