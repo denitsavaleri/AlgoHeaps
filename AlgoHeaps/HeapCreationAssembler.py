@@ -1,5 +1,4 @@
 from typing import List
-
 from CityDataManagement.City import City
 from CityDataImport.CityDataImporter import CityDataImporter
 from CityDataManagement.CityDataManager import CityDataManager
